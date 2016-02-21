@@ -1,0 +1,28 @@
+
+<a href="#/createDiscussion" class='btn btn-primary'>Criar Nova Discussão</a>
+
+<h1>Tópicos de Discussões</h1>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th class="col-md-5">Título</th>
+            <th class="col-md-3">Autor</th>
+            <th class="col-md-2">Respostas</th>
+            <th class="col-md-2">Criado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat='discussion in discussions'>
+            <td>
+                <a href="#/viewDiscussion/{{discussion.tag}}/{{discussion._id}}">
+                    {{discussion.title}}
+                </a>
+            </td>
+            <td>{{discussion.author}}</td>
+            <td>{{discussion.numberOfReplies}}</td>
+            <td>
+                <span am-time-ago="discussion.dateCreated"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

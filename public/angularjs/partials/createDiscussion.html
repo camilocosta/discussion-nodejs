@@ -1,0 +1,43 @@
+
+<a href="#/discussions" class='btn btn-primary'>Listar Discussões</a>
+
+<h1>Criar Nova Discussão</h1>
+<hr>
+
+<form ng-submit='saveDiscussion()'>
+
+<div class="container">
+    <div class="col-sm-8">
+        <div class="panel panel-white post panel-shadow">
+            <div class="post-heading">
+                <div class="pull-left image">
+                    <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                </div>
+                <div class="pull-left meta">
+                    <div class="title h5">
+                        <input type='text' placeholder='Autor' class="form-control" ng-model='discussion.author'/>
+                        criando nova discussão.
+                    </div>
+                    <h6 class="text-muted time">agora</h6>
+                </div>
+            </div> 
+            <div class="post-description"> 
+
+				<div class="form-group">  	
+					<input type='text' placeholder='Título' class="form-control" ng-model='discussion.title'/>
+				</div>
+
+				<div class="form-group">
+					<input type='text' placeholder='Conteúdo' class="form-control" ng-model='discussion.content'/>
+				</div>
+
+                <button type='submit' class='btn btn-primary'>Salvar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</form>
+
+

@@ -1,0 +1,65 @@
+
+<a href="#/discussions" class='btn btn-primary'>Listar Discussões</a>
+<hr>
+
+<div class="container">
+    <div class="col-sm-8">
+        <div class="panel panel-white post panel-shadow">
+            <div class="post-heading">
+                <div class="pull-left image">
+                    <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                </div>
+                <div class="pull-left meta">
+                    <div class="title h5">
+                        <b>{{discussion.author}}</b>
+                        criou uma nova discussão.
+                    </div>
+                    <h6 class="text-muted time"><span am-time-ago="discussion.dateCreated"></span></h6>
+                </div>
+            </div> 
+            <div class="post-description"> 
+
+            	<strong>{{discussion.title}}</strong>
+                <p>{{discussion.content}}</p>
+
+            </div>
+            <div class="post-footer">
+                
+                <form ng-submit='saveReplyToDiscussion()'>
+                    
+                    <div class="input-group"> 
+                        <input class="form-control" placeholder="Autor" type="text" ng-model='reply.author'>
+                        <input class="form-control" placeholder="Resposta" type="text" ng-model='reply.content'>
+                        <span class="input-group-addon">
+                            <input type="submit" value="Responder">
+                        </span>
+                    </div>
+                </form>
+
+                <ul class="comments-list" ng-repeat='reply in discussion.replies'>
+
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="http://bootdey.com/img/Content/user_3.jpg" alt="avatar">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">{{reply.author}}</h4>
+                                <h5 class="time"><span am-time-ago="reply.dateCreated"></span></h5>
+                            </div>
+                            <p>{{reply.content}}</p>
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="goDown"></div>
+
+
