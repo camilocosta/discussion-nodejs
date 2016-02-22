@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/discussion-node-js');
+//mongoose.connect('mongodb://localhost/discussion-node-js');
+mongoose.connect('mongodb://teste:teste@ds037145.mongolab.com:37145/bizsoft');
 var Schema = mongoose.Schema;
 
 var	replySchema = new Schema({
