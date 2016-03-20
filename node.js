@@ -1,4 +1,12 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+var logger = require('morgan');
+var methodOverride = require('method-override');
+var errorHandler = require('errorhandler');
+var dotenv = require('dotenv');
+
+
+dotenv.load({ path: '.env' });
 
 //Routes
 var routes = {};
@@ -14,17 +22,16 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride());
+
+//app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+app.use(errorHandler());
 
 //index to show angularjs
 app.get('/', routes.index.index);
