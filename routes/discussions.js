@@ -51,15 +51,18 @@ exports.saveReplyToDiscussion = function(req, res) {
 
 		var reply = req.body;
 
-		discussion.replies.push(reply);
+		console.log(reply);
+
+		discussion.replies.concat([reply]);
 		discussion.numberOfReplies = discussion.numberOfReplies + 1;
 		
 		discussion.save(function(error, discussion) {
 			
-			if(error) {
+			if (error) {
 				console.log("Erro ao Salvar Resposta");
 				console.log(error);
 				res.sendStatus(500);
+				return
 			}
 			
 			//TODO reply
