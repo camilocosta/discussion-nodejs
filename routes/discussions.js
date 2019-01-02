@@ -22,6 +22,7 @@ exports.getDiscussion = function(req, res) {
 	.populate('replies._author', 'name username')
 	.exec(function(error, discussion) {
 		if(error) res.sendStatus(500);
+		console.log(discussion);
 		res.json({ discussion: discussion });
 	});
 
@@ -51,9 +52,7 @@ exports.saveReplyToDiscussion = function(req, res) {
 
 		var reply = req.body;
 
-		console.log(reply);
-
-		discussion.replies.concat([reply]);
+		discussion.replies.push(reply);
 		discussion.numberOfReplies = discussion.numberOfReplies + 1;
 		
 		discussion.save(function(error, discussion) {
